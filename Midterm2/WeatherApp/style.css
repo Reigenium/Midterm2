@@ -1,0 +1,197 @@
+/* Основной стиль для body с фоновым изображением */
+html, body {
+    height: 100%; /* Высота на весь экран */
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    display: flex; /* Используем flexbox для выравнивания */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    font-family: Arial, sans-serif; /* Шрифт */
+    background: url('/Assets/luke-chesser-tgrBcf7S_dY-unsplash.jpg') no-repeat center center fixed; /* Фоновое изображение */
+    background-size: cover; /* Заполнение экрана фоном */
+    background-position: center; /* Центрируем изображение */
+    background-attachment: fixed; /* Фон фиксируется при прокрутке */
+    background-color: rgba(0, 0, 0, 0.5); /* Тёмный полупрозрачный фон */
+    background-blend-mode: overlay; /* Смешиваем фон с цветом */
+    overflow: hidden; /* Прячем полосу прокрутки */
+}
+
+/* Контейнер для всего приложения */
+#app-container {
+    width: 100%; /* Ширина на 100% */
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    height: 90vh; /* Высота контейнера 90% от экрана */
+    padding: 20px; /* Отступы внутри контейнера */
+    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
+    border-radius: 8px; /* Скруглённые углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    display: flex; /* Используем flexbox для размещения элементов */
+    flex-direction: column; /* Вертикальное размещение элементов */
+    align-items: center; /* Центрируем элементы по горизонтали */
+    overflow-y: auto; /* Включаем вертикальную прокрутку */
+}
+
+/* Скрытие полос прокрутки */
+#app-container,
+#forecast-list {
+    scrollbar-width: none; /* Для Firefox */
+    -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+}
+
+#app-container::-webkit-scrollbar,
+#forecast-list::-webkit-scrollbar {
+    display: none; /* Для Chrome, Safari и Opera */
+}
+
+/* Стиль для заголовков */
+h1, h2, h3 {
+    margin: 20px 0; /* Отступы сверху и снизу */
+    text-align: center; /* Центрируем текст */
+    color: #333; /* Цвет текста */
+}
+
+/* Контейнер для поиска (поиск по городу) */
+#search-container {
+    margin-bottom: 20px; /* Отступ снизу */
+    width: 100%; /* Ширина 100% */
+    display: flex; /* Используем flexbox */
+    justify-content: center; /* Центрируем элементы по горизонтали */
+}
+
+#search-input {
+    width: 50vw; /* Ширина 50% от ширины экрана */
+    max-width: 500px; /* Максимальная ширина */
+    min-width: 280px; /* Минимальная ширина */
+    padding: 10px; /* Отступы внутри поля ввода */
+    font-size: 1em; /* Размер шрифта */
+}
+
+/* Сетка для прогноза погоды */
+#forecast-list {
+    display: grid; /* Используем сетку */
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Автоматически подстраиваем колонки */
+    gap: 15px; /* Расстояние между элементами */
+    width: 100%; /* Ширина 100% */
+}
+
+/* Стили для карточек прогноза */
+.forecast-card {
+    background-color: #fff; /* Белый фон */
+    border: 1px solid #ddd; /* Светло-серая граница */
+    border-radius: 8px; /* Скруглённые углы */
+    padding: 10px; /* Отступы внутри карточки */
+    text-align: center; /* Центрируем текст */
+    cursor: pointer; /* Курсор в виде указателя */
+}
+
+.forecast-card img {
+    width: 50px; /* Ширина и высота иконки */
+    height: 50px;
+}
+
+/* Кнопка для переключения единиц измерения */
+#unit-toggle {
+    margin-top: 20px; /* Отступ сверху */
+    padding: 10px; /* Отступы внутри кнопки */
+    background-color: #ff6347; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    border: none; /* Без границ */
+    border-radius: 5px; /* Скруглённые углы */
+    cursor: pointer; /* Курсор в виде указателя */
+}
+
+/* Модальное окно (например, для отображения подробностей) */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Фиксированное позиционирование */
+    top: 0; /* Прикрепляем к верхней части экрана */
+    left: 0; /* Прикрепляем к левой части экрана */
+    width: 100%; /* Ширина 100% */
+    height: 100%; /* Высота 100% */
+    background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+    justify-content: center; /* Центрируем содержимое */
+    align-items: center; /* Центрируем по вертикали */
+}
+
+/* Стили для контента модального окна */
+.modal-content {
+    background-color: #fff; /* Белый фон */
+    padding: 20px; /* Отступы внутри */
+    width: 90%; /* Ширина 90% от экрана */
+    max-width: 600px; /* Максимальная ширина */
+    max-height: 80vh; /* Максимальная высота */
+    overflow-y: auto; /* Включаем вертикальную прокрутку */
+    border-radius: 8px; /* Скруглённые углы */
+    color: #333; /* Цвет текста */
+    font-size: 1em; /* Размер шрифта */
+    text-align: left; /* Выравнивание текста по левому краю */
+    position: relative; /* Относительное позиционирование для кнопки закрытия */
+}
+
+/* Стили для кнопки закрытия модального окна */
+.close-btn {
+    font-size: 1.2em; /* Размер шрифта */
+    color: #888; /* Цвет текста */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    cursor: pointer; /* Курсор в виде указателя */
+}
+
+/* Стили для кнопки получения погоды по текущему местоположению */
+#current-location {
+    margin-top: 20px; /* Отступ сверху */
+    padding: 10px; /* Отступы внутри кнопки */
+    background-color: #ff6347; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    border: none; /* Без границ */
+    border-radius: 5px; /* Скруглённые углы */
+    cursor: pointer; /* Курсор в виде указателя */
+    font-size: 1em; /* Размер шрифта */
+    transition: background-color 0.3s ease; /* Плавное изменение фона */
+}
+
+#current-location:hover {
+    background-color: #ff4500; /* Темнее при наведении */
+}
+
+#current-location:active {
+    background-color: #e03e2d; /* Ещё темнее при клике */
+}
+
+/* Адаптивные стили для маленьких экранов */
+@media (max-width: 600px) {
+    /* Размер поля для поиска */
+    #search-input {
+        width: 80vw; /* Ширина 80% от экрана */
+        max-width: 100%; /* Максимальная ширина */
+    }
+
+    /* Сетка для прогноза погоды на маленьких экранах */
+    #forecast-list {
+        grid-template-columns: repeat(2, 1fr); /* Два столбца */
+        gap: 10px; /* Меньше расстояния между элементами */
+    }
+
+    /* Размер иконок прогноза погоды */
+    .forecast-card img {
+        width: 50px; /* Ширина иконки */
+        height: 50px;
+    }
+
+    /* Паддинг контейнера приложения */
+    #app-container {
+        padding: 15px; /* Меньше отступов */
+    }
+
+    /* Размер шрифта заголовков */
+    h1, h2, h3 {
+        font-size: 1.2em; /* Меньше размер шрифта */
+    }
+
+    /* Размер кнопок */
+    #unit-toggle {
+        padding: 8px; /* Меньше отступов */
+        font-size: 1em; /* Меньше размер шрифта */
+    }
+}

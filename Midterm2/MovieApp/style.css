@@ -1,0 +1,214 @@
+/* Основной стиль для body с фоновым изображением */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Assistant, sans-serif;  /* Шрифт для текста */
+    background: url('/Assets/luke-chesser-pJadQetzTkI-unsplash.jpg') no-repeat center center fixed;  /* Фоновое изображение */
+    background-size: cover;  /* Изображение растягивается на весь экран */
+    background-color: rgba(0, 0, 0, 0.5);  /* Полупрозрачный черный фон */
+    background-blend-mode: overlay;  /* Слияние фона с изображением */
+    overflow: hidden;  /* Отключаем прокрутку страницы */
+}
+
+/* Контейнер для всего приложения */
+#app-container {
+    width: 100%;
+    max-width: 1200px;  /* Максимальная ширина контейнера */
+    height: 90vh;  /* Высота контейнера - 90% от высоты экрана */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);  /* Полупрозрачный белый фон */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Тень для контейнера */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;  /* Включаем прокрутку внутри контейнера */
+}
+
+#app-container, .modal-content {
+    scrollbar-width: none;  /* Для Firefox */
+    -ms-overflow-style: none;  /* Для Internet Explorer и Edge */
+}
+
+#app-container::-webkit-scrollbar,
+.modal-content::-webkit-scrollbar {
+    display: none;  /* Для Chrome, Safari и Opera: скрываем полосы прокрутки */
+}
+
+/* Стилизация заголовков */
+h1, h2 {
+    margin: 20px 0;
+    text-align: center;
+    color: #333;  /* Цвет заголовков */
+}
+
+/* Контейнер для поиска фильмов */
+#search-container {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* Центрируем элементы */
+}
+
+#search-input {
+    width: 50vw;  /* Ширина поля ввода - 50% от ширины экрана */
+    max-width: 500px;  /* Максимальная ширина поля ввода */
+    min-width: 280px;  /* Минимальная ширина поля ввода */
+    padding: 10px;
+    font-size: 1em;  /* Размер шрифта */
+}
+
+/* Сетка для отображения списка фильмов */
+#movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));  /* Автоматическая настройка колонок */
+    gap: 20px;
+    width: 100%;
+}
+
+/* Стилизация карточек фильмов */
+.movie-card {
+    background-color: #fff;  /* Белый фон */
+    border: 1px solid #ddd;  /* Светлый бордер */
+    border-radius: 8px;  /* Закругленные углы */
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;  /* Курсор в виде руки при наведении */
+}
+
+/* Стилизация изображений в карточках фильмов */
+.movie-card img {
+    width: 100%;
+    max-width: 140px;  /* Максимальная ширина изображения */
+    height: auto;
+    border-radius: 6px;  /* Закругленные углы изображения */
+    margin-bottom: 10px;
+}
+
+/* Оверлей для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);  /* Полупрозрачный черный фон */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стилизация содержимого модального окна */
+.modal-content {
+    background-color: #fff;  /* Белый фон */
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;  /* Прокрутка внутри окна */
+    border-radius: 8px;
+    color: #333;
+    font-size: 1em;
+    text-align: left;
+    position: relative;
+}
+
+/* Центрированное изображение в модальном окне */
+.modal-content img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto 12px;
+}
+
+/* Стили для заголовка и деталей фильма в модальном окне */
+#movie-title {
+    font-size: 1.4em;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+#movie-synopsis, #movie-rating, #movie-cast {
+    font-size: 1.1em;
+}
+
+/* Стилизация кнопки закрытия модального окна */
+.close-btn {
+    font-size: 1.2em;
+    color: #888;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Стилизация кнопки добавления в список */
+.watchlist-btn {
+    font-size: 1em;
+    padding: 8px 10px;
+    background-color: darkcyan;  /* Цвет кнопки */
+    color: #fff;  /* Цвет текста */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Контейнер для списка фильмов в watchlist */
+#watchlist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));  /* Сетка с колонками */
+    gap: 20px;
+    width: 100%;
+}
+
+/* Стилизация выпадающего списка сортировки */
+#sort-options {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+
+/* Адаптивные стили для экранов с шириной менее 600px */
+@media (max-width: 600px) {
+    #search-input {
+        width: 80vw;  /* Ширина поля ввода - 80% от ширины экрана */
+        max-width: 100%;  /* Максимальная ширина 100% */
+    }
+
+    #movie-list, #watchlist {
+        grid-template-columns: repeat(2, 1fr);  /* Два столбца на маленьких экранах */
+        gap: 10px;
+        padding: 0;
+    }
+
+    .movie-card img {
+        width: 100%;
+        max-width: 120px;  /* Уменьшаем размеры изображений */
+    }
+
+    .modal-content {
+        padding: 15px;  /* Уменьшаем отступы внутри модального окна */
+    }
+
+    #movie-title {
+        font-size: 1.2em;  /* Уменьшаем размер шрифта для заголовка */
+    }
+
+    #movie-synopsis, #movie-rating, #movie-cast {
+        font-size: 1em;  /* Уменьшаем размер шрифта для деталей фильма */
+    }
+}

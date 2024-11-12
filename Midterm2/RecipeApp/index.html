@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe App</title>
+  
+  <!-- шрифты с Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  
+  <!-- Ссылка на внешний файл стилей -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- главный заголовок приложения -->
+    <h1>Recipe App</h1>
+      
+    <!-- строка поиска для ввода запросов на рецепты -->
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Search for recipes..." oninput="searchRecipes()">
+    </div>
+
+    <!-- контейнер для отображения списка найденных рецептов -->
+    <div id="recipe-list"></div>
+
+    <!-- модальное окно для отображения подробной информации о рецепте -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+          <!-- кнопка закрытия модального окна -->
+          <span class="close-btn" onclick="closeModal()">&times;</span>
+          
+          <!-- заголовок рецепта, изображение, ингредиенты, инструкции, информация о питательности и рейтинги -->
+          <h2 id="recipe-title"></h2>
+          <img id="recipe-image" src="" alt="Recipe Image">
+          <div id="recipe-ingredients"></div>
+          <div id="recipe-instructions"></div>
+          <div id="recipe-nutrition"></div> <!-- Информация о питательной ценности -->
+          <div id="recipe-ratings"></div> <!-- Информация о рейтинге -->
+          
+          <!-- Кнопка для добавления/удаления рецепта из избранного -->
+          <button id="favorite-btn" class="favorite-btn">Add to Favorites</button>
+        </div>
+    </div>
+    
+    <!-- раздел для отображения избранных рецептов -->
+    <h2>Favorited Dishes</h2>
+    <div id="favorites-list"></div>
+  </div>
+
+  <!-- Подключение скрипта -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  
+  <!-- Ссылка на внешний CSS файл -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Главный заголовок приложения -->
+    <h1>Weather App</h1>
+
+    <!-- Поле поиска для ввода названия города -->
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Enter city name..." oninput="searchWeather()">
+    </div>
+
+    <!-- Кнопка для получения погоды по текущему местоположению -->
+    <button id="current-location" onclick="getLocationWeather()">Get Current Location Weather</button>
+
+    <!-- Отображение текущей погоды -->
+    <div id="current-weather">
+      <h3 id="current-city"></h3> <!-- Название города -->
+      <p id="current-temp"></p> <!-- Температура -->
+      <p id="current-humidity"></p> <!-- Влажность -->
+      <p id="current-wind"></p> <!-- Скорость ветра -->
+      <img id="current-weather-icon" src="" alt="Weather Icon"> <!-- Иконка погоды -->
+    </div>
+
+    <!-- Отображение прогноза погоды на 5 дней -->
+    <h2>5-Day Forecast</h2>
+    <div id="forecast-list"></div> <!-- Список прогноза на 5 дней -->
+
+    <!-- Кнопка для переключения единиц измерения (Цельсий / Фаренгейт) -->
+    <button id="unit-toggle" onclick="toggleUnits()">Switch to Fahrenheit</button>
+  </div>
+
+  <!-- Ссылка на внешний JavaScript файл -->
+  <script src="script.js"></script>
+</body>
+</html>

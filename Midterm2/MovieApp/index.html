@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie App</title>
+  
+  <!-- Подключение шрифтов с Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  
+  <!-- Ссылка на внешний CSS файл -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Основной заголовок приложения -->
+    <h1>Movie App</h1>
+      
+    <!-- Поле для поиска фильма -->
+    <div id="search-container">
+      <input type="text" id="search-input" placeholder="Search for movies..." oninput="searchMovies()">
+    </div>
+
+    <!-- Контейнер для отображения списка найденных фильмов -->
+    <div id="movie-list"></div>
+
+    <!-- Модальное окно для отображения подробной информации о фильме -->
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+          <!-- Кнопка закрытия модального окна -->
+          <span class="close-btn" onclick="closeModal()">&times;</span>
+          
+          <!-- Заголовок фильма, постер, синопсис, актеры, рейтинг и трейлеры -->
+          <h2 id="movie-title"></h2>
+          <img id="movie-poster" src="" alt="Movie Poster">
+          <div id="movie-synopsis"></div>
+          <div id="movie-rating"></div>
+          <div id="movie-cast"></div>
+          <div id="movie-trailers"></div>
+          
+          <!-- Кнопка для добавления/удаления фильма из списка для просмотра -->
+          <button id="watchlist-btn" class="watchlist-btn">Add to Watchlist</button>
+        </div>
+    </div>
+    
+    <!-- Секция для отображения фильмов в списке для просмотра -->
+    <h2>Watchlist</h2>
+    <div id="watchlist"></div>
+  </div>
+
+  <!-- Ссылка на внешний JavaScript файл -->
+  <script src="script.js"></script>
+</body>
+</html>
